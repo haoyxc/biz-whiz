@@ -3,16 +3,18 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import ArticleItem from "./ArticleItem";
 
-const US_BUSINESS_QUERY = gql`
-  query businessArticlesQuery {
-    articles {
-      title
-      description
-      content
-      publishedAt
-      url
-      source {
-        name
+const EVERYTHING_QUERY = gql`
+  query everythingQuery {
+    articlesByQuery {
+      articles {
+        title
+        description
+        content
+        publishedAt
+        url
+        source {
+          name
+        }
       }
     }
   }
@@ -23,7 +25,7 @@ export default class Articles extends Component {
     return (
       <div>
         <h5>Articles for the day</h5>
-        <Query query={US_BUSINESS_QUERY}>
+        <Query query={this.props.query} variables={this.props.variables}>
           {({ loading, error, data }) => {
             if (loading) {
               return (
