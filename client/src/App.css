@@ -20,3 +20,7 @@ body {
 }
 .article {
 }
+.articleTitle {
+  font-family: "Fira Code", monospace;
+  font-size: 1.4rem;
+}
