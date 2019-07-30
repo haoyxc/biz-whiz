@@ -3,23 +3,6 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import ArticleItem from "./ArticleItem";
 
-const EVERYTHING_QUERY = gql`
-  query everythingQuery {
-    articlesByQuery {
-      articles {
-        title
-        description
-        content
-        publishedAt
-        url
-        source {
-          name
-        }
-      }
-    }
-  }
-`;
-
 export default class Articles extends Component {
   render() {
     return (
@@ -40,7 +23,10 @@ export default class Articles extends Component {
             console.log(data.articles);
             return (
               <Fragment>
-                {data.articles.map(article => {
+                {/* {data.articles.map(article => {
+                  return <ArticleItem article={article} />;
+                })} */}
+                {data[Object.keys(data)[0]].map(article => {
                   return <ArticleItem article={article} />;
                 })}
               </Fragment>

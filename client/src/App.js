@@ -51,7 +51,8 @@ class App extends Component {
     super(props);
     this.state = {
       articlesQuery: US_BUSINESS_QUERY,
-      searchInput: ""
+      searchInput: "",
+      variables: {}
     };
   }
 
@@ -59,14 +60,26 @@ class App extends Component {
     this.setState({
       searchInput: e.target.value
     });
-    console.log("SEARCH", this.state.searchInput);
   }
+
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state.searchInput);
     this.setState({
-      articlesQuery: EVERYTHING_QUERY
+      articlesQuery: EVERYTHING_QUERY,
+      variables: {
+        query: this.state.searchInput
+      },
+      searchInput: ""
     });
-    console.log("SUBMIT", this.state.articlesQuery);
+  }
+
+  handleDefault(e) {
+    e.preventDefault();
+    this.setState({
+      articlesQuery: US_BUSINESS_QUERY,
+      variables: {}
+    });
   }
 
   render() {
@@ -76,10 +89,12 @@ class App extends Component {
           <img src={logo} alt="" className="logoImg" />
           <h3 class="main-title">The news</h3>
           <Searchbar
+            value={this.state.searchInput}
             handleQuery={this.handleQuery.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}
+            handleDefault={this.handleDefault.bind(this)}
           />
-          <Articles query={US_BUSINESS_QUERY} />
+          <Articles query={this.state.articlesQuery} variables={this.state.variables} />
           {/* <Articles query={EVERYTHING_QUERY} variables={{ query: "blockchain" }} /> */}
         </div>
       </ApolloProvider>
