@@ -19,8 +19,8 @@ export default class Articles extends Component {
               );
             }
             if (error) console.log(error);
-            console.log(data);
-            console.log(data.articles);
+            // console.log(data);
+            // console.log(data.articles);
             return (
               <Fragment>
                 {data[Object.keys(data)[0]].map(article => {
