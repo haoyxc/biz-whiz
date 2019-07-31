@@ -23,9 +23,6 @@ export default class Articles extends Component {
             console.log(data.articles);
             return (
               <Fragment>
-                {/* {data.articles.map(article => {
-                  return <ArticleItem article={article} />;
-                })} */}
                 {data[Object.keys(data)[0]].map(article => {
                   return <ArticleItem article={article} />;
                 })}

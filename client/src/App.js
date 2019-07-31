@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Component } from "react";
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
@@ -9,8 +8,6 @@ import Searchbar from "./components/Searchbar";
 
 import logo from "./newslogo.png";
 import "./App.css";
-
-const { GraphQLString } = require("graphql");
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql"
