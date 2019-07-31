@@ -7,7 +7,7 @@ export default class Articles extends Component {
   render() {
     return (
       <div>
-        <h5>Articles for the day</h5>
+        <h5 className="articles-subtitle">Relevant Articles</h5>
         <Query query={this.props.query} variables={this.props.variables}>
           {({ loading, error, data }) => {
             if (loading) {

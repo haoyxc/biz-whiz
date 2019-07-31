@@ -10,7 +10,7 @@ import logo from "./newslogo.png";
 import "./App.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
+  uri: "/graphql"
 });
 
 const US_BUSINESS_QUERY = gql`
@@ -61,7 +61,9 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.searchInput);
+    if (this.state.searchInput === "") {
+      return;
+    }
     this.setState({
       articlesQuery: EVERYTHING_QUERY,
       variables: {
@@ -84,7 +86,7 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="main-container">
           <img src={logo} alt="" className="logoImg" />
-          <h3 class="main-title">The news</h3>
+          {/* <h3 class="main-title">The news</h3> */}
           <Searchbar
             value={this.state.searchInput}
             handleQuery={this.handleQuery.bind(this)}

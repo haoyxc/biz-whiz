@@ -1,3 +1,9 @@
+:root {
+  --pastel1: #e0f5b9;
+  --pastel2: #c6f1d6;
+  --pastel3: #ffba92;
+  --pastel-darker: #ff8080;
+}
 * {
   margin: 0;
   padding: 0;
@@ -26,11 +32,18 @@ body {
 #articles {
   text-align: center;
 }
+.articles-subtitle {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
 /* Individual articles */
 .article {
   /* padding: 10px 0;  */
   margin: 20px 150px;
-  /* max-width: 700px; */
+  padding: 10px;
+  background-color: var(--pastel1);
+  border: 1px solid var(--pastel2);
 }
 .articleTitle {
   font-family: "Fira Code", monospace;
@@ -45,7 +58,24 @@ body {
   padding: 15px;
   margin-top: 5px;
 }
+.articleDetails > p {
+  margin-bottom: 10px;
+}
 .article-content {
   font-size: 1rem;
 }
 /* End of individual articles */
+/* Search Bar */
+.defaultNewsBtn,
+.search-btn {
+  padding: 10px;
+  background-color: var(--pastel3);
+  border-radius: 20px;
+}
+.search-input {
+  padding: 5px 10px;
+}
+.btn-container {
+  margin: 20px 0;
+}
+/* End of search bar */

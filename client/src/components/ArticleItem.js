@@ -7,10 +7,10 @@ export default function ArticleItem({ article }) {
 
       <p className="artcleDescription">{article.description}</p>
       <div className="articleDetails">
-        <p className="articleDate">{article.publishedAt.substring(0, 10)}</p>
+        <p className="articleDate">Published: {article.publishedAt.substring(0, 10)}</p>
         <p className="articleContent">{article.content}</p>
         <a href={article.url} className="articleUrl" target="_blank">
-          {article.source.name}'s entire article
+          {article.source.name}'s full article
         </a>
       </div>
     </div>
