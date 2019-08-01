@@ -10,7 +10,7 @@ import logo from "./newslogo.png";
 import "./App.css";
 
 const client = new ApolloClient({
-  uri: "/graphql"
+  uri: "http://localhost:4000/graphql"
 });
 
 const US_BUSINESS_QUERY = gql`
@@ -85,7 +85,8 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div className="main-container">
-          <img src={logo} alt="" className="logoImg" />
+          <h1>Biz Whiz</h1>
+          {/* <img src={logo} alt="" className="logoImg" /> */}
           {/* <h3 class="main-title">The news</h3> */}
           <Searchbar
             value={this.state.searchInput}
